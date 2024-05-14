@@ -99,7 +99,10 @@ always @(*)
 
         // Estado 1
         Verificar_pin: begin 
-            
+            /*
+            FALTA AGREGAR LÓGICA PARA VERIFICAR PIN Y TODO LO QUE 
+            CONLLEVA
+            */
 
             // Cuando el PIN es correcto
             if (pin == pin_correcto)begin 
@@ -124,7 +127,9 @@ always @(*)
                 if (monto > balance) nx_fondos_insuficientes = 1;
                 else if (monto =< balance) begin 
                     balance = balance - monto; 
+                    nx_entregar_dinero = 1;
                     nx_balance_actualizado = 1; 
+                    nx_state = Esperando_tarjeta;
                 end
             end
         end
@@ -139,16 +144,6 @@ always @(*)
     
     endcase // Acá terminan los casos para los estados
 
-
-
-
-    
-
 end
-
-
-
-
-
 
 endmodule
