@@ -11,28 +11,47 @@ estados para un controlador de un cajero automático (ATM).
 
 // Declaración del módulo 
 
-module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb,
-digito, pin, monto_stb, monto, balance_actualizado, entregar_dinero,
-pin_incorrecto, advertencia, bloqueo, fondos_insuficientes,
-nx_balance_actualizado, nx_entregar_dinero,
-nx_pin_incorrecto, nx_advertencia, nx_bloqueo, nx_fondos_insuficientes);
+module ATMcontroller(clk, rst, tarjeta_recibida, tipo_trans, add_digit, 
+digito_stb, digito, monto_stb, monto,  // Hasta acá las entradas
+balance_actualizado, entregar_dinero, pin_incorrecto, advertencia, bloqueo, 
+fondos_insuficientes,// Hasta acá salidas
+nx_balance_actualizado, nx_entregar_dinero, 
+nx_pin_incorrecto, nx_advertencia, nx_bloqueo, nx_fondos_insuficientes); // Hasta acá salidas como FFs
 
-// Declarando entradas
-input clk, rst, tarjeta_recibida, digito_stb, monto_stb;
-input [3:0] digito;
-input [15:0] pin; 
-input [31:0] monto; 
+// Declarando entradas [9]
+input clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb;
+input [3:0] digito; // Digito del teclado
+input [31:0] monto; // Monto para realizar transacción
 
-// Declarando salidas
+// Variable interna para almacer los dígitos para el ingreso de pin
+reg [15:0] pin_temporal; 
+reg [15:0] nx_pin_temporal;
+ 
+
+// Declarando salidas [6]
 output reg balance_actualizado, entregar_dinero, pin_incorrecto;
 output reg advertencia, bloqueo, fondos_insuficientes;
 
-// Declarando salidas futuras
+// Declarando salidas futuras [6]
 output reg nx_balance_actualizado, nx_entregar_dinero, nx_pin_incorrecto;
 output reg nx_advertencia, nx_bloqueo, nx_fondos_insuficientes;
 
+// Contador de digitos
+reg [4:0] contador_digitos;
+reg [4:0] nx_contador_digitos;
+
 // Declarando variables internas
-parameter [63:0] balance = 4500;
+// Balance de cuenta
+reg [63:0] balance = 4500;
+// Pin correcto es 4756 en BDC
+/* 4 = 0100
+   7 = 0111
+   5 = 0101
+   6 = 0110 
+*/
+parameter [15:0] pin_correcto = 16'b0100011101010110;
+
+// Variables para contar intentos de PIN
 reg [1:0] intento;
 reg [1:0] nx_intento; 
 
@@ -47,9 +66,6 @@ parameter Deposito = 2;
 parameter Retiro = 3; 
 parameter Bloqueo = 4; 
 
-// PIN correcto
-localparam [15:0] pin_correcto = 4721;
-
 always @(posedge clk) begin
     if (rst) begin // Cuando se activa rst
         state <= Esperando_tarjeta;
@@ -60,6 +76,9 @@ always @(posedge clk) begin
         advertencia <= 0;
         bloqueo <= 0;
         fondos_insuficientes <= 0;
+        pin_temporal <= 16'b0000000000000000;
+        nx_contador_digitos <= 0;
+
     end else begin // Tratamiento de FFs
         state <= nx_state;
         intento <= nx_intento;
@@ -69,9 +88,12 @@ always @(posedge clk) begin
         advertencia <= nx_advertencia;
         bloqueo <= nx_bloqueo;
         fondos_insuficientes <= nx_fondos_insuficientes;
+        pin_temporal <= nx_pin_temporal;
+        contador_digitos <= nx_contador_digitos;
     end
+end // termina  @(posedge clk)
 
-always @(*)
+always @(*) begin 
 
     nx_state = state; 
     nx_intento = intento; 
@@ -82,6 +104,8 @@ always @(*)
     nx_advertencia = advertencia;
     nx_bloqueo = bloqueo;
     nx_fondos_insuficientes = fondos_insuficientes;
+    nx_pin_temporal = pin_temporal ;
+    nx_contador_digitos = contador_digitos;
 
     case(state) 
         // Estado 0
@@ -92,6 +116,7 @@ always @(*)
             nx_advertencia = 0;
             nx_bloqueo = 0;
             nx_fondos_insuficientes = 0;
+            nx_contador_digitos = 0;
 
             if (tarjeta_recibida) nx_state = Verificar_pin;
             else nx_state = Esperando_tarjeta; // Vuelve a Esperando_tarjeta
@@ -99,16 +124,16 @@ always @(*)
 
         // Estado 1
         Verificar_pin: begin 
-            /*
-            FALTA AGREGAR LÓGICA PARA VERIFICAR PIN Y TODO LO QUE 
-            CONLLEVA
-            */
-
-            // Cuando el PIN es correcto
-            if (pin == pin_correcto)begin 
-                if (tipo_trans) nx_state = Retiro; // Pasa a estado retiro
-                else nx_state = Deposito; // Pasa a estado deposito
+            if (nx_contador_digitos < 4 && add_digit)begin
+                nx_contador_digitos = nx_contador_digitos +1;
+                pin_temporal = {pin_temporal[11:0], digito};
+                nx_state = Verificar_pin;
+            end 
+            else if (contador_digitos == 4 && digito_stb)begin
+                if (pin_temporal == pin_correcto && ~tipo_trans) nx_state = Deposito;
+                else if(pin_temporal == pin_correcto && tipo_trans) nx_state = Retiro;
             end
+            
         end
         
         // Estado 2
@@ -125,7 +150,7 @@ always @(*)
         Retiro: begin 
             if (monto_stb)begin 
                 if (monto > balance) nx_fondos_insuficientes = 1;
-                else if (monto =< balance) begin 
+                else if (monto <= balance) begin 
                     balance = balance - monto; 
                     nx_entregar_dinero = 1;
                     nx_balance_actualizado = 1; 
@@ -144,6 +169,6 @@ always @(*)
     
     endcase // Acá terminan los casos para los estados
 
-end
+end // Termina @(*)
 
 endmodule
