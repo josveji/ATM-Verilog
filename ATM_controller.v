@@ -12,11 +12,10 @@ estados para un controlador de un cajero automático (ATM).
 // Declaración del módulo 
 
 module ATMcontroller(clk, rst, tarjeta_recibida, tipo_trans, add_digit, 
-digito_stb, digito, monto_stb, monto,  // Hasta acá las entradas
-balance_actualizado, entregar_dinero, pin_incorrecto, advertencia, bloqueo, 
-fondos_insuficientes,// Hasta acá salidas
-nx_balance_actualizado, nx_entregar_dinero, 
-nx_pin_incorrecto, nx_advertencia, nx_bloqueo, nx_fondos_insuficientes); // Hasta acá salidas como FFs
+digito_stb, digito, monto_stb, monto, balance_actualizado,entregar_dinero,
+pin_incorrecto, advertencia, bloqueo, fondos_insuficientes,
+nx_balance_actualizado, nx_entregar_dinero, nx_pin_incorrecto,
+nx_advertencia, nx_bloqueo, nx_fondos_insuficientes); // Hasta acá salidas como FFs
 
 // Declarando entradas [9]
 input clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb;
@@ -129,10 +128,19 @@ always @(*) begin
                 pin_temporal = {pin_temporal[11:0], digito};
                 nx_state = Verificar_pin;
             end 
-            else if (contador_digitos == 4 && digito_stb)begin
-                if (pin_temporal == pin_correcto && ~tipo_trans) nx_state = Deposito;
-                else if(pin_temporal == pin_correcto && tipo_trans) nx_state = Retiro;
+            else if (nx_contador_digitos == 4 && digito_stb)begin
+                if (pin_temporal == pin_correcto)begin
+                    if (tipo_trans) nx_state = Retiro;
+                    else nx_state = Deposito;
+                end else if (pin_temporal != pin_correcto)begin 
+                    nx_intento = nx_intento +1;
+                    nx_state = Verificar_pin;
+                end
+            end else if (nx_intento == 2)begin
+                nx_advertencia = 1;
+                nx_state = Verificar_pin;
             end
+            else if (nx_intento == 3) nx_state = Bloqueo;
             
         end
         
@@ -154,6 +162,9 @@ always @(*) begin
                     balance = balance - monto; 
                     nx_entregar_dinero = 1;
                     nx_balance_actualizado = 1; 
+                    nx_state = Esperando_tarjeta;
+                end else if(monto > balance) begin 
+                    fondos_insuficientes = 1;
                     nx_state = Esperando_tarjeta;
                 end
             end
