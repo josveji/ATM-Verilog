@@ -11,7 +11,7 @@ estados para un controlador de un cajero automático (ATM).
 
 // Declaración del módulo 
 
-module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, add_digit, 
+module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, add_digit,
 digito_stb, digito, monto_stb, monto, balance_actualizado,entregar_dinero,
 pin_incorrecto, advertencia, bloqueo, fondos_insuficientes,
 nx_balance_actualizado, nx_entregar_dinero, nx_pin_incorrecto,
@@ -24,7 +24,8 @@ input [31:0] monto; // Monto para realizar transacción
 
 // Variable interna para almacer los dígitos para el ingreso de pin
 reg [15:0] pin_temporal; 
-reg [15:0] nx_pin_temporal = 16'b0000000000000000;
+reg [15:0] nx_pin_temporal; 
+//reg [15:0] nx_pin_temporal = 16'b0000000000000000;
  
 
 // Declarando salidas [6]
@@ -77,7 +78,7 @@ always @(posedge clk) begin
         bloqueo <= 0;
         fondos_insuficientes <= 0;
         pin_temporal <= 16'b0000000000000000;
-        nx_contador_digitos <= 0;
+        contador_digitos <= 0;
 
     end else begin // Tratamiento de FFs
         state <= nx_state;
@@ -127,14 +128,15 @@ always @(*) begin
         Verificar_pin: begin 
             if (nx_contador_digitos <= 4 && add_digit)begin
                 nx_contador_digitos = nx_contador_digitos +1;
-                pin_temporal = {pin_temporal[11:0], digito};
+                nx_pin_temporal = {nx_pin_temporal[11:0], digito};
                 nx_state = Verificar_pin;
             end 
-            else if (nx_contador_digitos == 4 && digito_stb)begin
+            else if (nx_contador_digitos == 4)begin
                 if (pin_temporal == pin_correcto)begin
                     if (tipo_trans) nx_state = Retiro;
                     else nx_state = Deposito;
                 end else if (pin_temporal != pin_correcto)begin 
+                    nx_contador_digitos = 0;
                     nx_intento = nx_intento +1;
                     nx_state = Verificar_pin;
                 end
@@ -147,7 +149,8 @@ always @(*) begin
         end
         
         // Estado 2
-        Deposito: begin 
+        Deposito: begin
+            nx_contador_digitos = 0; // Hace 0 de nuevo el contador de dígitos 
             if (monto_stb) begin 
                 balance = balance + monto; 
                 nx_balance_actualizado = 1;
@@ -158,7 +161,8 @@ always @(*) begin
 
         // Estado 3
         Retiro: begin 
-            if (monto_stb)begin 
+            nx_contador_digitos = 0; // Hace 0 de nuevo el contador de dígitos
+            if (monto_stb)begin
                 if (monto > balance) nx_fondos_insuficientes = 1;
                 else if (monto <= balance) begin 
                     balance = balance - monto; 

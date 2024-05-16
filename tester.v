@@ -57,40 +57,52 @@ end
 
 // Acá inicia el diseño de pruebas
 always begin 
-/* ==================Prueba (1)=====================
+/*===================Prueba (1)=====================
 Todo transcurre con normalidad. Se detecta tarjeta,
 pin correcto, deposito de 2000 */ 
-clk = 0; 
-#0 rst = 1;
-#5 rst = 0;
+clk = 0;
+tarjeta_recibida = 0; 
+tipo_trans = 0; 
+digito = 0; 
+add_digit = 0; 
+tipo_trans = 0; 
+digito_stb = 0; 
+monto_stb = 0; 
 
-#2 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
-#2 tarjeta_recibida = 0; 
+
+rst = 1;
+#2 rst = 0;
+monto = 10000;
+
+#1 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
+#1 tarjeta_recibida = 0; 
 /* 4 = 0100
    7 = 0111
    5 = 0101
    6 = 0110 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100;
-#2 add_digit = 1; 
-#4 add_digit = 0; 
+#1 digito = 4'b0100; // Pasa el 4
+#2 add_digit = 1; // cambiar por digito_stb
+#1 add_digit = 0; 
 // Se ingresa el segundo digito del pin
-#1 digito = 4'b0111;
-#2 add_digit = 1;
-#4 add_digit = 0; 
+digito = 4'b0111; // Pasa el 7
+#1 add_digit = 1;
+#1 add_digit = 0; 
 // Se ingresa el tercer digito del pin
-#1 digito = 4'b0101;
-#2 add_digit = 1;
-#4 add_digit = 0; 
+digito = 4'b0101; // Pasa el 5
+#1 add_digit = 1;
+#1 add_digit = 0; 
 // Se ingresa el cuarto digito del pin
-#1 digito = 4'b0110;
-#2 add_digit = 1;
-#4 add_digit = 0; 
+digito = 4'b0110; // Pasa el 6
+#1 add_digit = 1;
+#1 add_digit = 0; 
 
 // Se verifica el pin
 #1 tipo_trans = 0;  
-#1 digito_stb = 1; // Se verifica correctamente y se para al estado Deposito
+#2 monto_stb = 1; // Se verifica correctamente y se para al estado Deposito
+#1 monto_stb = 0;
+//==================Fin Prueba (1)====================
 
 #200 $finish;
 
