@@ -11,7 +11,7 @@ estados para un controlador de un cajero automático (ATM).
 
 // Declaración del módulo 
 
-module ATMcontroller(clk, rst, tarjeta_recibida, tipo_trans, add_digit, 
+module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, add_digit, 
 digito_stb, digito, monto_stb, monto, balance_actualizado,entregar_dinero,
 pin_incorrecto, advertencia, bloqueo, fondos_insuficientes,
 nx_balance_actualizado, nx_entregar_dinero, nx_pin_incorrecto,
@@ -24,7 +24,7 @@ input [31:0] monto; // Monto para realizar transacción
 
 // Variable interna para almacer los dígitos para el ingreso de pin
 reg [15:0] pin_temporal; 
-reg [15:0] nx_pin_temporal;
+reg [15:0] nx_pin_temporal = 16'b0000000000000000;
  
 
 // Declarando salidas [6]
@@ -123,7 +123,7 @@ always @(*) begin
 
         // Estado 1
         Verificar_pin: begin 
-            if (nx_contador_digitos < 4 && add_digit)begin
+            if (nx_contador_digitos <= 4 && add_digit)begin
                 nx_contador_digitos = nx_contador_digitos +1;
                 pin_temporal = {pin_temporal[11:0], digito};
                 nx_state = Verificar_pin;
