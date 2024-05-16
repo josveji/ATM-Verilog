@@ -49,6 +49,7 @@ reg [63:0] balance = 4500;
    6 = 0110 
 */
 parameter [15:0] pin_correcto = 16'b0100011101010110;
+//parameter [15:0] pin_correcto = 4756;
 
 // Variables para contar intentos de PIN
 reg [1:0] intento;
@@ -122,6 +123,7 @@ always @(*) begin
         end
 
         // Estado 1
+        //Pin temporal debería ser FF
         Verificar_pin: begin 
             if (nx_contador_digitos <= 4 && add_digit)begin
                 nx_contador_digitos = nx_contador_digitos +1;

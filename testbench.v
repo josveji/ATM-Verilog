@@ -15,7 +15,7 @@ Descripción del archivo: Este es el código encargado de evaluar las pruebas de
 
 // Decclaración del módulo 
 
-module apac_tb;
+module ATM_tb;
     //Entradas
     wire clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb; // Entradas
     wire [3:0] digito; 
