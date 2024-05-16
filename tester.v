@@ -16,7 +16,7 @@ module tester (
     rst, 
     tarjeta_recibida, 
     tipo_trans, 
-    add_digit, 
+    digito_stb, 
     digito,
     monto_stb,
     monto, 
@@ -32,12 +32,12 @@ module tester (
 );
 
 // Outputs
-output clk, rst, tarjeta_recibida, tipo_trans, add_digit, monto_stb; 
+output clk, rst, tarjeta_recibida, tipo_trans, digito_stb, monto_stb; 
 output [3:0] digito; // Digito del teclado
 output [31:0] monto; // Monto para realizar transacción
 
 // Regs para Outputs
-reg clk, rst, tarjeta_recibida, tipo_trans, add_digit, monto_stb;
+reg clk, rst, tarjeta_recibida, tipo_trans, digito_stb, monto_stb;
 reg [3:0] digito; // Digito del teclado
 reg [31:0] monto;
 
@@ -63,7 +63,7 @@ clk = 0;
 tarjeta_recibida = 0; 
 tipo_trans = 0; 
 digito = 0; 
-add_digit = 0; 
+digito_stb = 0; 
 tipo_trans = 0;  
 monto_stb = 0; 
 
@@ -81,20 +81,20 @@ monto = 10000;
 */
 // Se ingresa el primer digito del pin
 #1 digito = 4'b0100; // Pasa el 4
-#2 add_digit = 1; // cambiar por digito_stb
-#1 add_digit = 0; 
+#2 digito_stb = 1; // cambiar por digito_stb
+#1 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 add_digit = 1;
-#1 add_digit = 0; 
+#1 digito_stb = 1;
+#1 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 add_digit = 1;
-#1 add_digit = 0; 
+#1 digito_stb = 1;
+#1 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0110; // Pasa el 6
-#1 add_digit = 1;
-#1 add_digit = 0; 
+#1 digito_stb = 1;
+#1 digito_stb = 0; 
 
 // Se verifica el pin
 #1 tipo_trans = 0;  
