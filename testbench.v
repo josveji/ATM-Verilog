@@ -17,7 +17,7 @@ Descripción del archivo: Este es el código encargado de evaluar las pruebas de
 
 module ATM_tb;
     //Entradas
-    wire clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb; // Entradas
+    wire clk, rst, tarjeta_recibida, tipo_trans, add_digit, monto_stb; // Entradas
     wire [3:0] digito; 
     wire [31:0] monto;
 
@@ -28,8 +28,8 @@ module ATM_tb;
     initial begin 
         $dumpfile("resultados_ATM.vcd"); // Archivo con resultados
         $dumpvars(-1, U0); 
-        $monitor ("tarjeta_recibida=%b, tipo_trans=%b, add_digit=%b, digito_stb=%b, digito=%b, monto_stb=%b, monto=%b, balance_actualizado=%b, entregar_dinero=%b, pin_incorrecto=%b, advertencia=%b, bloqueo=%b, fondos_insuficientes=%b",
-        tarjeta_recibida, tipo_trans, add_digit, digito_stb, digito, monto_stb, monto, balance_actualizado, entregar_dinero, pin_incorrecto, advertencia, bloqueo, fondos_insuficientes);
+        $monitor ("tarjeta_recibida=%b, tipo_trans=%b, add_digit=%b, digito=%b, monto_stb=%b, monto=%b, balance_actualizado=%b, entregar_dinero=%b, pin_incorrecto=%b, advertencia=%b, bloqueo=%b, fondos_insuficientes=%b",
+        tarjeta_recibida, tipo_trans, add_digit, digito, monto_stb, monto, balance_actualizado, entregar_dinero, pin_incorrecto, advertencia, bloqueo, fondos_insuficientes);
 
     end
 
@@ -40,7 +40,6 @@ module ATM_tb;
         .tarjeta_recibida (tarjeta_recibida),
         .tipo_trans(tipo_trans), 
         .add_digit(add_digit), 
-        .digito_stb(digito_stb), 
         .digito(digito), 
         .monto_stb(monto_stb), 
         .monto(monto), 
@@ -59,7 +58,6 @@ module ATM_tb;
         .tarjeta_recibida (tarjeta_recibida),
         .tipo_trans(tipo_trans), 
         .add_digit(add_digit), 
-        .digito_stb(digito_stb), 
         .digito(digito), 
         .monto_stb(monto_stb), 
         .monto(monto), 

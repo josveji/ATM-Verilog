@@ -12,13 +12,13 @@ estados para un controlador de un cajero automático (ATM).
 // Declaración del módulo 
 
 module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, add_digit,
-digito_stb, digito, monto_stb, monto, balance_actualizado,entregar_dinero,
+digito, monto_stb, monto, balance_actualizado,entregar_dinero,
 pin_incorrecto, advertencia, bloqueo, fondos_insuficientes,
 nx_balance_actualizado, nx_entregar_dinero, nx_pin_incorrecto,
 nx_advertencia, nx_bloqueo, nx_fondos_insuficientes); // Hasta acá salidas como FFs
 
 // Declarando entradas [9]
-input clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb;
+input clk, rst, tarjeta_recibida, tipo_trans, add_digit, monto_stb;
 input [3:0] digito; // Digito del teclado
 input [31:0] monto; // Monto para realizar transacción
 
@@ -163,8 +163,7 @@ always @(*) begin
         Retiro: begin 
             nx_contador_digitos = 0; // Hace 0 de nuevo el contador de dígitos
             if (monto_stb)begin
-                if (monto > balance) nx_fondos_insuficientes = 1;
-                else if (monto <= balance) begin 
+                if (monto <= balance) begin 
                     balance = balance - monto; 
                     nx_entregar_dinero = 1;
                     nx_balance_actualizado = 1; 

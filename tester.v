@@ -17,7 +17,6 @@ module tester (
     tarjeta_recibida, 
     tipo_trans, 
     add_digit, 
-    digito_stb,
     digito,
     monto_stb,
     monto, 
@@ -33,12 +32,12 @@ module tester (
 );
 
 // Outputs
-output clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb; 
+output clk, rst, tarjeta_recibida, tipo_trans, add_digit, monto_stb; 
 output [3:0] digito; // Digito del teclado
 output [31:0] monto; // Monto para realizar transacción
 
 // Regs para Outputs
-reg clk, rst, tarjeta_recibida, tipo_trans, add_digit, digito_stb, monto_stb;
+reg clk, rst, tarjeta_recibida, tipo_trans, add_digit, monto_stb;
 reg [3:0] digito; // Digito del teclado
 reg [31:0] monto;
 
@@ -59,14 +58,13 @@ end
 always begin 
 /*===================Prueba (1)=====================
 Todo transcurre con normalidad. Se detecta tarjeta,
-pin correcto, deposito de 2000 */ 
+pin correcto, deposito de 10000 */ 
 clk = 0;
 tarjeta_recibida = 0; 
 tipo_trans = 0; 
 digito = 0; 
 add_digit = 0; 
-tipo_trans = 0; 
-digito_stb = 0; 
+tipo_trans = 0;  
 monto_stb = 0; 
 
 
