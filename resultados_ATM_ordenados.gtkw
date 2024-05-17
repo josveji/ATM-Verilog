@@ -1,20 +1,20 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Thu May 16 23:54:40 2024
+[*] Fri May 17 01:15:50 2024
 [*]
 [dumpfile] "C:\Users\josue\OneDrive\Documentos\Universidad\2024\Circuitos Digitales II\Tarea 3\ATM-Verilog\resultados_ATM.vcd"
-[dumpfile_mtime] "Thu May 16 23:51:06 2024"
-[dumpfile_size] 4347
+[dumpfile_mtime] "Fri May 17 01:15:01 2024"
+[dumpfile_size] 9257
 [savefile] "C:\Users\josue\OneDrive\Documentos\Universidad\2024\Circuitos Digitales II\Tarea 3\ATM-Verilog\resultados_ATM_ordenados.gtkw"
-[timestart] 4
-[size] 1536 801
-[pos] -1 -1
-*-2.156284 9 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 88
+[size] 1920 1017
+[pos] -1929 -9
+*-3.156284 90 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] ATM_tb.
 [sst_width] 197
 [signals_width] 232
 [sst_expanded] 1
-[sst_vpaned_height] 224
+[sst_vpaned_height] 300
 @28
 ATM_tb.U0.clk
 @22
@@ -27,9 +27,12 @@ ATM_tb.U0.pin_correcto
 ATM_tb.U0.digito[3:0]
 ATM_tb.U0.pin_temporal[15:0]
 ATM_tb.U0.contador_digitos[4:0]
-@29
-ATM_tb.U0.digito_stb
 @28
+ATM_tb.U0.digito_stb
+@24
+ATM_tb.U0.intento[1:0]
+@28
+ATM_tb.U0.advertencia
 ATM_tb.U0.tipo_trans
 ATM_tb.U0.monto_stb
 ATM_tb.U0.bloqueo

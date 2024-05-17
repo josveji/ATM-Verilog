@@ -118,6 +118,7 @@ always @(*) begin
             nx_bloqueo = 0;
             nx_fondos_insuficientes = 0;
             nx_contador_digitos = 0;
+            nx_fondos_insuficientes = 0;
 
             if (tarjeta_recibida) nx_state = Verificar_pin;
             else nx_state = Esperando_tarjeta; // Vuelve a Esperando_tarjeta
@@ -133,6 +134,8 @@ always @(*) begin
             end 
             else if (nx_contador_digitos == 4)begin
                 if (pin_temporal == pin_correcto)begin
+                    nx_intento = 0;
+                    nx_advertencia = 0;
                     if (tipo_trans) nx_state = Retiro;
                     else nx_state = Deposito;
                 end else if (pin_temporal != pin_correcto)begin 
@@ -169,7 +172,7 @@ always @(*) begin
                     nx_balance_actualizado = 1; 
                     nx_state = Esperando_tarjeta;
                 end else if(monto > balance) begin 
-                    fondos_insuficientes = 1;
+                    nx_fondos_insuficientes = 1;
                     nx_state = Esperando_tarjeta;
                 end
             end
@@ -177,9 +180,7 @@ always @(*) begin
 
         // Estado 4
         Bloqueo: begin 
-            nx_bloqueo = 1;
-            if (rst) nx_state = Esperando_tarjeta; 
-            else nx_state = Bloqueo;  
+            nx_bloqueo = 1;  
         end
 
     
