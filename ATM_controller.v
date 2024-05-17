@@ -22,6 +22,8 @@ input clk, rst, tarjeta_recibida, tipo_trans, digito_stb, monto_stb;
 input [3:0] digito; // Digito del teclado
 input [31:0] monto; // Monto para realizar transacción
 
+// podría ser digito_stb
+
 // Variable interna para almacer los dígitos para el ingreso de pin
 reg [15:0] pin_temporal; 
 reg [15:0] nx_pin_temporal; 
@@ -42,7 +44,10 @@ reg [4:0] nx_contador_digitos;
 
 // Declarando variables internas
 // Balance de cuenta
-reg [63:0] balance = 4500;
+// reg [63:0] balance = 4500;
+reg [63:0] balance;
+reg [63:0] nx_balance; 
+
 // Pin correcto es 4756 en BDC
 /* 4 = 0100
    7 = 0111
@@ -79,6 +84,7 @@ always @(posedge clk) begin
         fondos_insuficientes <= 0;
         pin_temporal <= 16'b0000000000000000;
         contador_digitos <= 0;
+        balance <= 4500; 
 
     end else begin // Tratamiento de FFs
         state <= nx_state;
@@ -91,6 +97,7 @@ always @(posedge clk) begin
         fondos_insuficientes <= nx_fondos_insuficientes;
         pin_temporal <= nx_pin_temporal;
         contador_digitos <= nx_contador_digitos;
+        balance <= nx_balance;
     end
 end // termina  @(posedge clk)
 
@@ -98,7 +105,7 @@ always @(*) begin
 
     nx_state = state; 
     nx_intento = intento; 
-
+    nx_balance = balance; // Agregado comp FF
     nx_balance_actualizado = balance_actualizado; 
     nx_entregar_dinero = entregar_dinero;
     nx_pin_incorrecto = pin_incorrecto;
@@ -155,7 +162,7 @@ always @(*) begin
         Deposito: begin
             nx_contador_digitos = 0; // Hace 0 de nuevo el contador de dígitos 
             if (monto_stb) begin 
-                balance = balance + monto; 
+                nx_balance = nx_balance + monto; 
                 nx_balance_actualizado = 1;
                 nx_state = Esperando_tarjeta;
             end
@@ -167,7 +174,7 @@ always @(*) begin
             nx_contador_digitos = 0; // Hace 0 de nuevo el contador de dígitos
             if (monto_stb)begin
                 if (monto <= balance) begin 
-                    balance = balance - monto; 
+                    nx_balance = nx_balance - monto; 
                     nx_entregar_dinero = 1;
                     nx_balance_actualizado = 1; 
                     nx_state = Esperando_tarjeta;
