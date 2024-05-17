@@ -9,10 +9,10 @@ Descripción del archivo: Este es el código encargado de evaluar las pruebas de
 */
 
 `include "tester.v" // Incluyendo archivo de pruebas
-`include "ATM_controller.v" // Incluyendo máquina de estados
+//`include "ATM_controller.v" // Incluyendo máquina de estados
 //`include "ATM_rtlil.v" // Version RTLIL
-//`include "ATM_synth.v" // Version synthesis
-//`include "cmos_cells.v"
+`include "ATM_synth.v" // Version synthesis
+`include "cmos_cells.v"
 
 
 // Decclaración del módulo 

@@ -1,20 +1,20 @@
 [*]
-[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Fri May 17 01:15:50 2024
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Fri May 17 03:13:06 2024
 [*]
-[dumpfile] "C:\Users\josue\OneDrive\Documentos\Universidad\2024\Circuitos Digitales II\Tarea 3\ATM-Verilog\resultados_ATM.vcd"
-[dumpfile_mtime] "Fri May 17 01:15:01 2024"
-[dumpfile_size] 9257
-[savefile] "C:\Users\josue\OneDrive\Documentos\Universidad\2024\Circuitos Digitales II\Tarea 3\ATM-Verilog\resultados_ATM_ordenados.gtkw"
-[timestart] 88
-[size] 1920 1017
-[pos] -1929 -9
-*-3.156284 90 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[dumpfile] "/home/josue/Documents/Tarea3/ATM-Verilog/resultados_ATM.vcd"
+[dumpfile_mtime] "Fri May 17 03:11:19 2024"
+[dumpfile_size] 292005
+[savefile] "/home/josue/Documents/Tarea3/ATM-Verilog/resultados_ATM_ordenados.gtkw"
+[timestart] 0
+[size] 1850 1001
+[pos] -27 -24
+*-5.156284 38 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] ATM_tb.
-[sst_width] 197
+[sst_width] 278
 [signals_width] 232
 [sst_expanded] 1
-[sst_vpaned_height] 300
+[sst_vpaned_height] 294
 @28
 ATM_tb.U0.clk
 @22
@@ -23,7 +23,6 @@ ATM_tb.U0.state[3:0]
 ATM_tb.U0.rst
 ATM_tb.U0.tarjeta_recibida
 @22
-ATM_tb.U0.pin_correcto
 ATM_tb.U0.digito[3:0]
 ATM_tb.U0.pin_temporal[15:0]
 ATM_tb.U0.contador_digitos[4:0]

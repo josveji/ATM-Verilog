@@ -66,7 +66,9 @@ tipo_trans = 0;
 monto_stb = 0; 
 
 rst = 1;
-#2 rst = 0;
+#1 rst = 0; // Haciendo esto synthv sì funciona
+//#2 rst =0; // Haciendo esto funciona original 
+// En ninguno de los casos funciona rtlil 
 
 /*===================Prueba (1)=======================
 Todo transcurre con normalidad. Se detecta tarjeta,
