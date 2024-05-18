@@ -66,9 +66,7 @@ tipo_trans = 0;
 monto_stb = 0; 
 
 rst = 1;
-#9 rst = 0; // Haciendo esto synthv sì funciona
-//#2 rst =0; // Haciendo esto funciona original 
-// En ninguno de los casos funciona rtlil 
+#9 rst = 0;
 
 /*===================Prueba (1)=======================
 Todo transcurre con normalidad. Se detecta tarjeta,
@@ -86,7 +84,7 @@ monto = 10000;
 */
 // Se ingresa el primer digito del pin
 #1 digito = 4'b0100; // Pasa el 4
-#1 digito_stb = 1; // cambiar por digito_stb
+#1 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -122,7 +120,7 @@ Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estad
 */
 // Se ingresa el primer digito del pin
 #1 digito = 4'b0100; // Pasa el 4
-#1 digito_stb = 1; // cambiar por digito_stb
+#1 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -145,7 +143,7 @@ digito = 4'b0111; // Pasa el 7
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -169,7 +167,7 @@ tipo_trans = 1;
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -206,7 +204,7 @@ vuelve al estado "Esperando tarjeta" */
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -243,7 +241,7 @@ vuelve al estado "Esperando tarjeta" */
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -281,7 +279,7 @@ Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estad
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -304,7 +302,7 @@ digito = 4'b0111; // Pasa el 7
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
@@ -327,7 +325,7 @@ digito = 4'b0111; // Pasa el 7
 */
 // Se ingresa el primer digito del pin
 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 1; 
 #2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
