@@ -73,7 +73,7 @@ parameter Retiro = 3;
 parameter Bloqueo = 4; 
 
 always @(posedge clk) begin
-    if (rst) begin // Cuando se activa rst
+    if (!rst) begin // Cuando se activa rst
         state <= Esperando_tarjeta;
         intento <= 0;
         balance_actualizado <= 0; 

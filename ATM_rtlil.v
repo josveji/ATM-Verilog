@@ -1099,405 +1099,405 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   wire tipo_trans;
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) intento[0] <= 1'h0;
+    if (!rst) intento[0] <= 1'h0;
     else if (_0030_) intento[0] <= _0011_[0];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) intento[1] <= 1'h0;
+    if (!rst) intento[1] <= 1'h0;
     else if (_0030_) intento[1] <= _0011_[1];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[0] <= 1'h0;
+    if (!rst) pin_temporal[0] <= 1'h0;
     else if (_0033_) pin_temporal[0] <= digito[0];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[1] <= 1'h0;
+    if (!rst) pin_temporal[1] <= 1'h0;
     else if (_0033_) pin_temporal[1] <= digito[1];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[2] <= 1'h0;
+    if (!rst) pin_temporal[2] <= 1'h0;
     else if (_0033_) pin_temporal[2] <= digito[2];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[3] <= 1'h0;
+    if (!rst) pin_temporal[3] <= 1'h0;
     else if (_0033_) pin_temporal[3] <= digito[3];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[4] <= 1'h0;
+    if (!rst) pin_temporal[4] <= 1'h0;
     else if (_0033_) pin_temporal[4] <= pin_temporal[0];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[5] <= 1'h0;
+    if (!rst) pin_temporal[5] <= 1'h0;
     else if (_0033_) pin_temporal[5] <= pin_temporal[1];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[6] <= 1'h0;
+    if (!rst) pin_temporal[6] <= 1'h0;
     else if (_0033_) pin_temporal[6] <= pin_temporal[2];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[7] <= 1'h0;
+    if (!rst) pin_temporal[7] <= 1'h0;
     else if (_0033_) pin_temporal[7] <= pin_temporal[3];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[8] <= 1'h0;
+    if (!rst) pin_temporal[8] <= 1'h0;
     else if (_0033_) pin_temporal[8] <= pin_temporal[4];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[9] <= 1'h0;
+    if (!rst) pin_temporal[9] <= 1'h0;
     else if (_0033_) pin_temporal[9] <= pin_temporal[5];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[10] <= 1'h0;
+    if (!rst) pin_temporal[10] <= 1'h0;
     else if (_0033_) pin_temporal[10] <= pin_temporal[6];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[11] <= 1'h0;
+    if (!rst) pin_temporal[11] <= 1'h0;
     else if (_0033_) pin_temporal[11] <= pin_temporal[7];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[12] <= 1'h0;
+    if (!rst) pin_temporal[12] <= 1'h0;
     else if (_0033_) pin_temporal[12] <= pin_temporal[8];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[13] <= 1'h0;
+    if (!rst) pin_temporal[13] <= 1'h0;
     else if (_0033_) pin_temporal[13] <= pin_temporal[9];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[14] <= 1'h0;
+    if (!rst) pin_temporal[14] <= 1'h0;
     else if (_0033_) pin_temporal[14] <= pin_temporal[10];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_temporal[15] <= 1'h0;
+    if (!rst) pin_temporal[15] <= 1'h0;
     else if (_0033_) pin_temporal[15] <= pin_temporal[11];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) entregar_dinero <= 1'h0;
+    if (!rst) entregar_dinero <= 1'h0;
     else entregar_dinero <= nx_entregar_dinero;
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) pin_incorrecto <= 1'h0;
+    if (!rst) pin_incorrecto <= 1'h0;
     else pin_incorrecto <= nx_pin_incorrecto;
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) contador_digitos[0] <= 1'h0;
+    if (!rst) contador_digitos[0] <= 1'h0;
     else if (_0032_) contador_digitos[0] <= nx_contador_digitos[0];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) contador_digitos[1] <= 1'h0;
+    if (!rst) contador_digitos[1] <= 1'h0;
     else if (_0032_) contador_digitos[1] <= nx_contador_digitos[1];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) contador_digitos[2] <= 1'h0;
+    if (!rst) contador_digitos[2] <= 1'h0;
     else if (_0032_) contador_digitos[2] <= nx_contador_digitos[2];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) contador_digitos[3] <= 1'h0;
+    if (!rst) contador_digitos[3] <= 1'h0;
     else if (_0032_) contador_digitos[3] <= nx_contador_digitos[3];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) contador_digitos[4] <= 1'h0;
+    if (!rst) contador_digitos[4] <= 1'h0;
     else if (_0032_) contador_digitos[4] <= nx_contador_digitos[4];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) bloqueo <= 1'h0;
+    if (!rst) bloqueo <= 1'h0;
     else bloqueo <= nx_bloqueo;
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[0] <= 1'h0;
+    if (!rst) balance[0] <= 1'h0;
     else if (_0031_) balance[0] <= nx_balance[0];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[1] <= 1'h0;
+    if (!rst) balance[1] <= 1'h0;
     else if (_0031_) balance[1] <= nx_balance[1];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[2] <= 1'h1;
+    if (!rst) balance[2] <= 1'h1;
     else if (_0031_) balance[2] <= nx_balance[2];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[3] <= 1'h0;
+    if (!rst) balance[3] <= 1'h0;
     else if (_0031_) balance[3] <= nx_balance[3];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[4] <= 1'h1;
+    if (!rst) balance[4] <= 1'h1;
     else if (_0031_) balance[4] <= nx_balance[4];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[5] <= 1'h0;
+    if (!rst) balance[5] <= 1'h0;
     else if (_0031_) balance[5] <= nx_balance[5];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[6] <= 1'h0;
+    if (!rst) balance[6] <= 1'h0;
     else if (_0031_) balance[6] <= nx_balance[6];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[7] <= 1'h1;
+    if (!rst) balance[7] <= 1'h1;
     else if (_0031_) balance[7] <= nx_balance[7];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[8] <= 1'h1;
+    if (!rst) balance[8] <= 1'h1;
     else if (_0031_) balance[8] <= nx_balance[8];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[9] <= 1'h0;
+    if (!rst) balance[9] <= 1'h0;
     else if (_0031_) balance[9] <= nx_balance[9];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[10] <= 1'h0;
+    if (!rst) balance[10] <= 1'h0;
     else if (_0031_) balance[10] <= nx_balance[10];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[11] <= 1'h0;
+    if (!rst) balance[11] <= 1'h0;
     else if (_0031_) balance[11] <= nx_balance[11];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[12] <= 1'h1;
+    if (!rst) balance[12] <= 1'h1;
     else if (_0031_) balance[12] <= nx_balance[12];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[13] <= 1'h0;
+    if (!rst) balance[13] <= 1'h0;
     else if (_0031_) balance[13] <= nx_balance[13];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[14] <= 1'h0;
+    if (!rst) balance[14] <= 1'h0;
     else if (_0031_) balance[14] <= nx_balance[14];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[15] <= 1'h0;
+    if (!rst) balance[15] <= 1'h0;
     else if (_0031_) balance[15] <= nx_balance[15];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[16] <= 1'h0;
+    if (!rst) balance[16] <= 1'h0;
     else if (_0031_) balance[16] <= nx_balance[16];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[17] <= 1'h0;
+    if (!rst) balance[17] <= 1'h0;
     else if (_0031_) balance[17] <= nx_balance[17];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[18] <= 1'h0;
+    if (!rst) balance[18] <= 1'h0;
     else if (_0031_) balance[18] <= nx_balance[18];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[19] <= 1'h0;
+    if (!rst) balance[19] <= 1'h0;
     else if (_0031_) balance[19] <= nx_balance[19];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[20] <= 1'h0;
+    if (!rst) balance[20] <= 1'h0;
     else if (_0031_) balance[20] <= nx_balance[20];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[21] <= 1'h0;
+    if (!rst) balance[21] <= 1'h0;
     else if (_0031_) balance[21] <= nx_balance[21];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[22] <= 1'h0;
+    if (!rst) balance[22] <= 1'h0;
     else if (_0031_) balance[22] <= nx_balance[22];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[23] <= 1'h0;
+    if (!rst) balance[23] <= 1'h0;
     else if (_0031_) balance[23] <= nx_balance[23];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[24] <= 1'h0;
+    if (!rst) balance[24] <= 1'h0;
     else if (_0031_) balance[24] <= nx_balance[24];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[25] <= 1'h0;
+    if (!rst) balance[25] <= 1'h0;
     else if (_0031_) balance[25] <= nx_balance[25];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[26] <= 1'h0;
+    if (!rst) balance[26] <= 1'h0;
     else if (_0031_) balance[26] <= nx_balance[26];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[27] <= 1'h0;
+    if (!rst) balance[27] <= 1'h0;
     else if (_0031_) balance[27] <= nx_balance[27];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[28] <= 1'h0;
+    if (!rst) balance[28] <= 1'h0;
     else if (_0031_) balance[28] <= nx_balance[28];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[29] <= 1'h0;
+    if (!rst) balance[29] <= 1'h0;
     else if (_0031_) balance[29] <= nx_balance[29];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[30] <= 1'h0;
+    if (!rst) balance[30] <= 1'h0;
     else if (_0031_) balance[30] <= nx_balance[30];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[31] <= 1'h0;
+    if (!rst) balance[31] <= 1'h0;
     else if (_0031_) balance[31] <= nx_balance[31];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[32] <= 1'h0;
+    if (!rst) balance[32] <= 1'h0;
     else if (_0031_) balance[32] <= nx_balance[32];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[33] <= 1'h0;
+    if (!rst) balance[33] <= 1'h0;
     else if (_0031_) balance[33] <= nx_balance[33];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[34] <= 1'h0;
+    if (!rst) balance[34] <= 1'h0;
     else if (_0031_) balance[34] <= nx_balance[34];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[35] <= 1'h0;
+    if (!rst) balance[35] <= 1'h0;
     else if (_0031_) balance[35] <= nx_balance[35];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[36] <= 1'h0;
+    if (!rst) balance[36] <= 1'h0;
     else if (_0031_) balance[36] <= nx_balance[36];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[37] <= 1'h0;
+    if (!rst) balance[37] <= 1'h0;
     else if (_0031_) balance[37] <= nx_balance[37];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[38] <= 1'h0;
+    if (!rst) balance[38] <= 1'h0;
     else if (_0031_) balance[38] <= nx_balance[38];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[39] <= 1'h0;
+    if (!rst) balance[39] <= 1'h0;
     else if (_0031_) balance[39] <= nx_balance[39];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[40] <= 1'h0;
+    if (!rst) balance[40] <= 1'h0;
     else if (_0031_) balance[40] <= nx_balance[40];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[41] <= 1'h0;
+    if (!rst) balance[41] <= 1'h0;
     else if (_0031_) balance[41] <= nx_balance[41];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[42] <= 1'h0;
+    if (!rst) balance[42] <= 1'h0;
     else if (_0031_) balance[42] <= nx_balance[42];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[43] <= 1'h0;
+    if (!rst) balance[43] <= 1'h0;
     else if (_0031_) balance[43] <= nx_balance[43];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[44] <= 1'h0;
+    if (!rst) balance[44] <= 1'h0;
     else if (_0031_) balance[44] <= nx_balance[44];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[45] <= 1'h0;
+    if (!rst) balance[45] <= 1'h0;
     else if (_0031_) balance[45] <= nx_balance[45];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[46] <= 1'h0;
+    if (!rst) balance[46] <= 1'h0;
     else if (_0031_) balance[46] <= nx_balance[46];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[47] <= 1'h0;
+    if (!rst) balance[47] <= 1'h0;
     else if (_0031_) balance[47] <= nx_balance[47];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[48] <= 1'h0;
+    if (!rst) balance[48] <= 1'h0;
     else if (_0031_) balance[48] <= nx_balance[48];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[49] <= 1'h0;
+    if (!rst) balance[49] <= 1'h0;
     else if (_0031_) balance[49] <= nx_balance[49];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[50] <= 1'h0;
+    if (!rst) balance[50] <= 1'h0;
     else if (_0031_) balance[50] <= nx_balance[50];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[51] <= 1'h0;
+    if (!rst) balance[51] <= 1'h0;
     else if (_0031_) balance[51] <= nx_balance[51];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[52] <= 1'h0;
+    if (!rst) balance[52] <= 1'h0;
     else if (_0031_) balance[52] <= nx_balance[52];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[53] <= 1'h0;
+    if (!rst) balance[53] <= 1'h0;
     else if (_0031_) balance[53] <= nx_balance[53];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[54] <= 1'h0;
+    if (!rst) balance[54] <= 1'h0;
     else if (_0031_) balance[54] <= nx_balance[54];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[55] <= 1'h0;
+    if (!rst) balance[55] <= 1'h0;
     else if (_0031_) balance[55] <= nx_balance[55];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[56] <= 1'h0;
+    if (!rst) balance[56] <= 1'h0;
     else if (_0031_) balance[56] <= nx_balance[56];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[57] <= 1'h0;
+    if (!rst) balance[57] <= 1'h0;
     else if (_0031_) balance[57] <= nx_balance[57];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[58] <= 1'h0;
+    if (!rst) balance[58] <= 1'h0;
     else if (_0031_) balance[58] <= nx_balance[58];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[59] <= 1'h0;
+    if (!rst) balance[59] <= 1'h0;
     else if (_0031_) balance[59] <= nx_balance[59];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[60] <= 1'h0;
+    if (!rst) balance[60] <= 1'h0;
     else if (_0031_) balance[60] <= nx_balance[60];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[61] <= 1'h0;
+    if (!rst) balance[61] <= 1'h0;
     else if (_0031_) balance[61] <= nx_balance[61];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[62] <= 1'h0;
+    if (!rst) balance[62] <= 1'h0;
     else if (_0031_) balance[62] <= nx_balance[62];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance[63] <= 1'h0;
+    if (!rst) balance[63] <= 1'h0;
     else if (_0031_) balance[63] <= nx_balance[63];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) balance_actualizado <= 1'h0;
+    if (!rst) balance_actualizado <= 1'h0;
     else balance_actualizado <= nx_balance_actualizado;
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) advertencia <= 1'h0;
+    if (!rst) advertencia <= 1'h0;
     else advertencia <= nx_advertencia;
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) state[0] <= 1'h0;
+    if (!rst) state[0] <= 1'h0;
     else if (_0034_) state[0] <= nx_state[0];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) state[1] <= 1'h0;
+    if (!rst) state[1] <= 1'h0;
     else if (_0034_) state[1] <= nx_state[1];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) state[2] <= 1'h0;
+    if (!rst) state[2] <= 1'h0;
     else if (_0034_) state[2] <= nx_state[2];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) state[3] <= 1'h0;
+    if (!rst) state[3] <= 1'h0;
     else if (_0034_) state[3] <= nx_state[3];
   (* src = "ATM_controller.v:75.1-102.4" *)
   always @(posedge clk)
-    if (rst) fondos_insuficientes <= 1'h0;
+    if (!rst) fondos_insuficientes <= 1'h0;
     else fondos_insuficientes <= nx_fondos_insuficientes;
   assign _0043_ = ~pin_temporal[1];
-  assign _0042_ = ~pin_temporal[2];
+  assign _0041_ = ~pin_temporal[4];
   assign _0125_[4] = ~contador_digitos[4];
   assign _0125_[3] = ~contador_digitos[3];
   assign _0125_[1] = ~contador_digitos[1];
   assign _0110_[0] = ~contador_digitos[0];
-  assign _0041_ = ~pin_temporal[4];
   assign _0040_ = ~pin_temporal[6];
-  assign _0132_[0] = ~_0131_[0];
   assign _0039_ = ~pin_temporal[8];
   assign _0038_ = ~pin_temporal[9];
+  assign _0132_[0] = ~_0131_[0];
   assign _0037_ = ~pin_temporal[10];
   assign _0036_ = ~pin_temporal[14];
+  assign _0042_ = ~pin_temporal[2];
   assign _0044_ = ~intento[1];
   assign _0112_[0] = ~intento[0];
   assign _0045_ = ~state[2];
@@ -1674,6 +1674,7 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0083_[2] = ~(* src = "ATM_controller.v:153.26-153.41" *) _0086_;
   assign _0083_[3] = ~(* src = "ATM_controller.v:157.22-157.37" *) _0087_;
   assign _0083_[0] = _0088_ &(* src = "ATM_controller.v:137.17-137.55" *)  digito_stb;
+  assign _0106_[66] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0116_[2] : 1'hx;
   assign _0106_[67] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0116_[3] : 1'hx;
   assign _0106_[68] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0116_[4] : 1'hx;
   assign _0106_[69] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0116_[5] : 1'hx;
@@ -1988,7 +1989,6 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0103_[1] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) 1'h1 : balance_actualizado;
   assign _0106_[64] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0115_[0] : 1'hx;
   assign _0106_[65] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0116_[1] : 1'hx;
-  assign _0106_[66] = monto_stb ? (* src = "ATM_controller.v:164.17-164.26|ATM_controller.v:164.13-169.38" *) _0116_[2] : 1'hx;
   assign _0035_ = ~_0083_[0];
   assign _0122_ = ~(* src = "ATM_controller.v:181.29-181.44" *) _0119_[63];
   assign _0084_[2] = ~(* src = "ATM_controller.v:181.29-181.44" *) _0084_[1];
@@ -1998,6 +1998,7 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0118_[3] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[3];
   assign _0118_[4] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[4];
   assign _0118_[5] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[5];
+  assign _0118_[6] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[6];
   assign _0118_[7] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[7];
   assign _0118_[8] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[8];
   assign _0118_[9] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[9];
@@ -2019,8 +2020,8 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0118_[25] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[25];
   assign _0118_[26] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[26];
   assign _0118_[27] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[27];
-  assign _0118_[28] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[28];
-  assign _0118_[29] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[29];
+  assign _0118_[31] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[31];
+  assign _0118_[32] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[32];
   assign _0118_[33] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[33];
   assign _0118_[34] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[34];
   assign _0118_[35] = ~(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[35];
@@ -2070,10 +2071,9 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0129_[29] = ~(* src = "ATM_controller.v:177.34-177.52|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) monto[29];
   assign _0129_[30] = ~(* src = "ATM_controller.v:177.34-177.52|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) monto[30];
   assign _0129_[31] = ~(* src = "ATM_controller.v:177.34-177.52|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) monto[31];
-  assign _0118_[6] = ~(* src = "ATM_controller.v:165.30-165.48|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[6];
+  assign _0118_[28] = ~(* src = "ATM_controller.v:165.30-165.48|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[28];
+  assign _0118_[29] = ~(* src = "ATM_controller.v:165.30-165.48|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[29];
   assign _0118_[30] = ~(* src = "ATM_controller.v:165.30-165.48|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[30];
-  assign _0118_[31] = ~(* src = "ATM_controller.v:165.30-165.48|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[31];
-  assign _0118_[32] = ~(* src = "ATM_controller.v:165.30-165.48|/usr/bin/../share/yosys/techmap.v:279.31-279.37" *) balance[32];
   assign _0084_[1] = _0122_ | _0123_;
   assign _0090_[12] = tarjeta_recibida &(* src = "ATM_controller.v:0.0-0.0|ATM_controller.v:118.5-194.12|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)  _0091_[3];
   assign _0090_[8] = _0089_[8] &(* src = "ATM_controller.v:0.0-0.0|ATM_controller.v:118.5-194.12|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)  _0091_[2];
@@ -2636,15 +2636,12 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0311_ = _0121_[23] |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0281_;
   assign _0312_ = _0121_[25] |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0282_;
   assign _0313_ = _0121_[27] |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0283_;
+  assign _0314_ = _0121_[29] |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0284_;
   assign _0315_ = _0121_[31] |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0285_;
   assign _0119_[3] = _0301_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0286_;
   assign _0316_ = _0303_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0287_;
   assign _0317_ = _0305_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0288_;
   assign _0318_ = _0307_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0289_;
-  assign _0319_ = _0309_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0290_;
-  assign _0320_ = _0311_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0291_;
-  assign _0321_ = _0313_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0292_;
-  assign _0322_ = _0315_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0293_;
   assign _0325_ = _0322_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0297_;
   assign _0326_ = _0325_ |(* src = "ATM_controller.v:176.21-176.37|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0299_;
   assign _0328_ = _0131_[1] &(* src = "ATM_controller.v:177.34-177.52|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.19-240.41" *)  _0130_[0];
@@ -3118,7 +3115,10 @@ module ATM_controller(clk, rst, tarjeta_recibida, tipo_trans, digito_stb, digito
   assign _0071_[7] = _0070_[15] &(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:241.12-241.34" *)  _0070_[14];
   assign _0071_[12] = _0070_[25] &(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:241.12-241.34" *)  _0070_[24];
   assign _0072_[4] = _0071_[9] &(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:241.12-241.34" *)  _0071_[8];
-  assign _0314_ = _0121_[29] |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0284_;
+  assign _0319_ = _0309_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0290_;
+  assign _0320_ = _0311_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0291_;
+  assign _0321_ = _0313_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0292_;
+  assign _0322_ = _0315_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0293_;
   assign _0119_[7] = _0316_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0294_;
   assign _0323_ = _0318_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0295_;
   assign _0324_ = _0320_ |(* src = "ATM_controller.v:181.29-181.44|/usr/bin/../share/yosys/techmap.v:286.27-286.69|/usr/bin/../share/yosys/techmap.v:240.12-240.41" *)  _0296_;

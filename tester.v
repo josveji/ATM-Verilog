@@ -65,8 +65,8 @@ digito_stb = 0;
 tipo_trans = 0;  
 monto_stb = 0; 
 
-rst = 1;
-#9 rst = 0;
+rst = 0;
+#9 rst = 1;
 
 /*===================Prueba (1)=======================
 Todo transcurre con normalidad. Se detecta tarjeta,
@@ -341,12 +341,13 @@ digito = 4'b0111; // Pasa el 7
 #2 digito_stb = 0;
 
 // Se va al estado de bloqueo, se apaga con rst
-#8 rst = 1;
-#4 rst = 0; 
+#8 rst = 0;
+#4 rst = 1; 
 
 //==================Fin Prueba (5)====================
 
 // Todas las pruebas fueron completadas con éxito.
+// El rst funciona según lo estipulado en las especificaciones
 
 #200 $finish;
 
