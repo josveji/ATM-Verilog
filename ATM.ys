@@ -1,5 +1,5 @@
 # Este archivo contiene los comandos necesarios para hacer la 
-# sintesis de la maquina de estados Automatic-Parking-Access-Control
+# sintesis de la maquina de estados ATM ATM_controller
 
 # read design 
 read_verilog ATM_controller.v
