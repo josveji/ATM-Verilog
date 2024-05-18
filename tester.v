@@ -342,7 +342,7 @@ digito = 4'b0111; // Pasa el 7
 
 // Se va al estado de bloqueo, se apaga con rst
 #8 rst = 1;
-#2 rst = 0; 
+#4 rst = 0; 
 
 //==================Fin Prueba (5)====================
 
