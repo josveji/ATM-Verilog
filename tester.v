@@ -66,7 +66,7 @@ tipo_trans = 0;
 monto_stb = 0; 
 
 rst = 1;
-#1 rst = 0; // Haciendo esto synthv sì funciona
+#9 rst = 0; // Haciendo esto synthv sì funciona
 //#2 rst =0; // Haciendo esto funciona original 
 // En ninguno de los casos funciona rtlil 
 
@@ -77,7 +77,7 @@ pin correcto, deposito de 10000, vuelve al estado
 monto = 10000;
 
 #1 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
-#1 tarjeta_recibida = 0; 
+#2 tarjeta_recibida = 0; 
 //------------Ingreso contraseña correcta-------------
 /* 4 = 0100
    7 = 0111
@@ -86,33 +86,33 @@ monto = 10000;
 */
 // Se ingresa el primer digito del pin
 #1 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#1 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0110; // Pasa el 6
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 // Se verifica el pin
 #1 tipo_trans = 0;  
-#2 monto_stb = 1; // Se verifica correctamente y se para al estado Esperando tarjeta
-#1 monto_stb = 0;
+#1 monto_stb = 1; // Se verifica correctamente y se para al estado Esperando tarjeta
+#2 monto_stb = 0;
 //==================Fin Prueba (1)====================
 
 /*===================Prueba (2)=======================
 Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estado
 "Esperando tarjeta" */ 
 
-#3 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
-#1 tarjeta_recibida = 0;
+#2 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
+#2 tarjeta_recibida = 0;
 
 //-------Primer ingreso contraseña incorrecta---------
 /* 4 = 0100
@@ -122,20 +122,20 @@ Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estad
 */
 // Se ingresa el primer digito del pin
 #1 digito = 4'b0100; // Pasa el 4
-#2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#1 digito_stb = 1; // cambiar por digito_stb
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 //------Segundo ingreso contraseña incorrecta---------
 /* 4 = 0100
@@ -144,21 +144,21 @@ digito = 4'b0111; // Pasa el 7
    7 = 0111 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 //------------Ingreso contraseña correcta-------------
 tipo_trans = 1;
@@ -168,27 +168,27 @@ tipo_trans = 1;
    6 = 0110 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0110; // Pasa el 6
-#1 digito_stb = 1;
-#1 digito_stb = 0;
+#2 digito_stb = 1;
+#2 digito_stb = 0;
 
 monto = 10000;
 // Se aplica el retiro
 #1 tipo_trans = 1; // Va al estado Retiro 
-#2 monto_stb = 1; // Se verifica correctamente y se pasa al estado Esperando tarjeta
-#1 monto_stb = 0;
+#1 monto_stb = 1; // Se verifica correctamente y se pasa al estado Esperando tarjeta
+#2 monto_stb = 0;
 
 //==================Fin Prueba (2)====================
 
@@ -196,8 +196,8 @@ monto = 10000;
 Se detecta tarjeta, contraseña correcta, retiro de 10000, fondos insuficientes
 vuelve al estado "Esperando tarjeta" */ 
 
-#1 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
-#1 tarjeta_recibida = 0; 
+#2 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
+#2 tarjeta_recibida = 0; 
 //------------Ingreso contraseña correcta-------------
 /* 4 = 0100
    7 = 0111
@@ -205,27 +205,27 @@ vuelve al estado "Esperando tarjeta" */
    6 = 0110 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0110; // Pasa el 6
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 monto = 10000;
 // En el estado Retiro
-#1 tipo_trans = 1; // Va al estado Retiro 
-#2 monto_stb = 1; // Se rechaza por fondos insuficientes 
-#1 monto_stb = 0; // y se pasa al estado Esperando tarjeta
+tipo_trans = 1; // Va al estado Retiro 
+#1 monto_stb = 1; // Se rechaza por fondos insuficientes 
+#2 monto_stb = 0; // y se pasa al estado Esperando tarjeta
 
 //==================Fin Prueba (3)====================
 
@@ -234,7 +234,7 @@ Se detecta tarjeta, contraseña correcta, retiro de 1000, se procesa correctaent
 vuelve al estado "Esperando tarjeta" */ 
 
 #1 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
-#1 tarjeta_recibida = 0; 
+#2 tarjeta_recibida = 0; 
 //------------Ingreso contraseña correcta-------------
 /* 4 = 0100
    7 = 0111
@@ -242,36 +242,36 @@ vuelve al estado "Esperando tarjeta" */
    6 = 0110 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0110; // Pasa el 6
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 monto = 1000;
 // En el estado Retiro
-#1 tipo_trans = 1; // Va al estado Retiro 
+tipo_trans = 1; // Va al estado Retiro 
 #2 monto_stb = 1; // Se procesa el retiro correctamente
-#1 monto_stb = 0; // y se pasa al estado Esperando tarjeta
+#2 monto_stb = 0; // y se pasa al estado Esperando tarjeta
 
-// tres segundos después 
+
 
 /*===================Prueba (5)=======================
 Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estado
 "Esperando tarjeta" */ 
 
-#3 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
-#1 tarjeta_recibida = 0;
+#2 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
+#2 tarjeta_recibida = 0;
 
 //-------Primer ingreso contraseña incorrecta---------
 /* 4 = 0100
@@ -280,21 +280,21 @@ Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estad
    7 = 0111 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 //------Segundo ingreso contraseña incorrecta---------
 /* 4 = 0100
@@ -303,21 +303,21 @@ digito = 4'b0111; // Pasa el 7
    7 = 0111 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 
 //------Tercer ingreso contraseña incorrecta---------
 /* 4 = 0100
@@ -326,25 +326,25 @@ digito = 4'b0111; // Pasa el 7
    7 = 0111 
 */
 // Se ingresa el primer digito del pin
-#1 digito = 4'b0100; // Pasa el 4
+digito = 4'b0100; // Pasa el 4
 #2 digito_stb = 1; // cambiar por digito_stb
-#1 digito_stb = 0; 
+#2 digito_stb = 0; 
 // Se ingresa el segundo digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el tercer digito del pin
 digito = 4'b0101; // Pasa el 5
-#1 digito_stb = 1;
-#1 digito_stb = 0; 
+#2 digito_stb = 1;
+#2 digito_stb = 0; 
 // Se ingresa el cuarto digito del pin
 digito = 4'b0111; // Pasa el 7
-#1 digito_stb = 1;
-#1 digito_stb = 0;
+#2 digito_stb = 1;
+#2 digito_stb = 0;
 
 // Se va al estado de bloqueo, se apaga con rst
-#7 rst = 1;
-#1 rst = 0; 
+#8 rst = 1;
+#2 rst = 0; 
 
 //==================Fin Prueba (5)====================
 
