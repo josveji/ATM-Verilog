@@ -106,7 +106,7 @@ digito = 4'b0110; // Pasa el 6
 //==================Fin Prueba (1)====================
 
 /*===================Prueba (2)=======================
-Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estado
+Se detecta tarjeta, pin incorrecto dos veces, retiro de 10000, vuelve al estado
 "Esperando tarjeta" */ 
 
 #2 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
@@ -265,8 +265,9 @@ tipo_trans = 1; // Va al estado Retiro
 
 
 /*===================Prueba (5)=======================
-Se detecta tarjeta, pin incorrecto dos veces, deposito de 10000, vuelve al estado
-"Esperando tarjeta" */ 
+Se detecta tarjeta, se ingresa un pin incorrecto tres veces seguidas
+y se pasa al estado de "Bloqueo". Por último, se vuelve al estado 
+"Esperando tarjeta" al hacer uso de reset.*/ 
 
 #2 tarjeta_recibida = 1; // Se pasa al estado Verificar_pin
 #2 tarjeta_recibida = 0;
