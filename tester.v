@@ -346,6 +346,8 @@ digito = 4'b0111; // Pasa el 7
 
 //==================Fin Prueba (5)====================
 
+// Todas las pruebas fueron completadas con éxito.
+
 #200 $finish;
 
 end
