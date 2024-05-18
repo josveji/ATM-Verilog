@@ -141,12 +141,14 @@ always @(*) begin
             end 
             else if (nx_contador_digitos == 4)begin
                 if (pin_temporal == pin_correcto)begin
+                    nx_pin_incorrecto = 0; 
                     nx_intento = 0;
                     nx_advertencia = 0;
                     if (tipo_trans) nx_state = Retiro;
                     else nx_state = Deposito;
                 end else if (pin_temporal != pin_correcto)begin 
                     nx_contador_digitos = 0;
+                    nx_pin_incorrecto = 1; 
                     nx_intento = nx_intento +1;
                     nx_state = Verificar_pin;
                 end
